@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -115,7 +114,7 @@ const Contact = () => {
             {[
               { icon: Phone, title: "Phone", content: "(555) 123-4567", subtitle: "Main Office" },
               { icon: Mail, title: "Email", content: "info@memorymattersmd.com", subtitle: "General Inquiries" },
-              { icon: MapPin, title: "Location", content: "123 Healthcare Drive", subtitle: "Medical Center, State 12345" },
+              { icon: MapPin, title: "Location", content: "4, Wind Tunnel Rd", subtitle: "Murugeshpalya, Bengaluru" },
               { icon: Shield, title: "Emergency", content: "(555) 123-4567", subtitle: "24/7 for Patients" }
             ].map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={0.1 + index * 0.1}>
@@ -305,14 +304,14 @@ const Contact = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <p className="font-inter font-medium text-medical-charcoal mb-1">Memory Matters Clinic</p>
-                        <p className="font-inter text-gray-700">123 Healthcare Drive</p>
-                        <p className="font-inter text-gray-700">Medical Center, State 12345</p>
+                        <p className="font-inter font-medium text-medical-charcoal mb-1">Dr. Soumya Hegde : Memory Matters</p>
+                        <p className="font-inter text-gray-700">4, Wind Tunnel Rd, Murugeshpalya</p>
+                        <p className="font-inter text-gray-700">Kaveri Nagar, Bengaluru, Karnataka 560017</p>
                       </div>
                       
                       <div className="space-y-2">
                         {[
-                          { icon: Car, text: "Free parking available" },
+                          { icon: Car, text: "Street parking available" },
                           { icon: Bus, text: "Public transit accessible" },
                           { icon: Accessibility, text: "Wheelchair accessible" }
                         ].map((amenity, index) => (
@@ -370,7 +369,7 @@ const Contact = () => {
                 Find Our Clinic
               </h2>
               <p className="font-inter text-gray-600">
-                Located in the heart of the Medical Center district with easy access and ample parking
+                Located in Murugeshpalya, Bengaluru with easy access via Wind Tunnel Road
               </p>
             </div>
           </ScrollReveal>
@@ -382,7 +381,7 @@ const Contact = () => {
                   <MapPin className="w-16 h-16 text-medical-teal mx-auto mb-4 animate-pulse" />
                   <p className="font-inter text-gray-600">Interactive Google Maps</p>
                   <p className="font-inter text-sm text-gray-500">
-                    123 Healthcare Drive, Medical Center, State 12345
+                    4, Wind Tunnel Rd, Murugeshpalya, Kaveri Nagar, Bengaluru, Karnataka 560017
                   </p>
                 </div>
               </div>

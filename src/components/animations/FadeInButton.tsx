@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import { Button } from '@/components/ui/button';
 import LoadingSpinner from './LoadingSpinner';
 
@@ -12,14 +12,14 @@ interface FadeInButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-const FadeInButton: React.FC<FadeInButtonProps> = ({
+const FadeInButton = forwardRef<HTMLButtonElement, FadeInButtonProps>(({
   children,
   onClick,
   loading = false,
   className = '',
   disabled = false,
   type = 'button'
-}) => {
+}, ref) => {
   const [isPressed, setIsPressed] = useState(false);
 
   const handleClick = async () => {
@@ -32,6 +32,7 @@ const FadeInButton: React.FC<FadeInButtonProps> = ({
 
   return (
     <Button
+      ref={ref}
       type={type}
       onClick={handleClick}
       disabled={disabled || loading}
@@ -51,6 +52,8 @@ const FadeInButton: React.FC<FadeInButtonProps> = ({
       </span>
     </Button>
   );
-};
+});
+
+FadeInButton.displayName = "FadeInButton";
 
 export default FadeInButton;

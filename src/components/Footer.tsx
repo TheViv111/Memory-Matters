@@ -33,9 +33,13 @@ const Footer = () => {
                 <Mail size={18} className="text-medical-teal" />
                 <span>info@memorymattersmd.com</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <MapPin size={18} className="text-medical-teal" />
-                <span>123 Healthcare Drive, Medical Center, State 12345</span>
+              <div className="flex items-start space-x-3">
+                <MapPin size={18} className="text-medical-teal mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Dr. Soumya Hegde : Memory Matters</p>
+                  <p>4, Wind Tunnel Rd, Murugeshpalya</p>
+                  <p>Kaveri Nagar, Bengaluru, Karnataka 560017</p>
+                </div>
               </div>
             </div>
           </div>
