@@ -74,7 +74,7 @@ serve(async (req) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${Deno.env.get('RESEND_API_KEY')}`
+        'Authorization': `Bearer re_hQjv6ALw_LeaX6nMEhN1L2zHffYzwr9Eh`
       },
       body: JSON.stringify(emailData)
     })
