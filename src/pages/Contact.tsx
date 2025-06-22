@@ -1,262 +1,34 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ContactHero from '@/components/contact/ContactHero';
+import ContactInfo from '@/components/contact/ContactInfo';
+import ContactForm from '@/components/contact/ContactForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { 
-  MapPin, 
-  Phone, 
-  Mail, 
   Clock, 
+  MapPin,
   Car, 
   Bus,
   Accessibility,
   Shield
 } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import ScrollReveal from '@/components/animations/ScrollReveal';
-import FadeInButton from '@/components/animations/FadeInButton';
 import GoogleMap from '@/components/GoogleMap';
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-    contactPreference: ''
-  });
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast({
-        title: "Incomplete Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const { data, error } = await supabase.functions.invoke('submit-contact', {
-        body: formData
-      });
-
-      if (error) {
-        throw error;
-      }
-
-      toast({
-        title: "Message Sent Successfully! ✨",
-        description: "Thank you for contacting us. We'll respond within 24 hours.",
-      });
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        contactPreference: ''
-      });
-
-    } catch (error) {
-      console.error('Error submitting contact form:', error);
-      toast({
-        title: "Submission Error",
-        description: "There was an error sending your message. Please try again or call us directly.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-medical-beige">
       <Navigation />
-      
-      {/* Hero Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal direction="up" delay={0.1}>
-            <h1 className="font-playfair text-4xl md:text-5xl text-medical-charcoal mb-6">
-              Contact Memory Matters
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.2}>
-            <p className="font-inter text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-              We're here to help answer your questions and support you on your journey to better 
-              neurological health. Reach out to our compassionate team today.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Contact Information Grid */}
-      <section className="py-16 bg-medical-beige">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              { icon: Phone, title: "Phone", content: "+91 9867739963", subtitle: "Main Office" },
-              { icon: Mail, title: "Email", content: "info@memorymattersmd.com", subtitle: "General Inquiries" },
-              { icon: MapPin, title: "Location", content: "4, Wind Tunnel Rd", subtitle: "Murugeshpalya, Bengaluru" },
-              { icon: Shield, title: "Emergency", content: "+91 9867739963", subtitle: "24/7 for Patients" }
-            ].map((item, index) => (
-              <ScrollReveal key={index} direction="up" delay={0.1 + index * 0.1}>
-                <Card className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <CardContent className="p-6">
-                    <div className="transform transition-transform duration-200 hover:scale-110">
-                      <item.icon className="w-12 h-12 text-medical-teal mx-auto mb-4" />
-                    </div>
-                    <h3 className="font-playfair text-lg text-medical-charcoal mb-2">{item.title}</h3>
-                    <p className="font-inter text-medical-deep-blue font-semibold">{item.content}</p>
-                    <p className="font-inter text-sm text-gray-600 mt-1">{item.subtitle}</p>
-                  </CardContent>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ContactHero />
+      <ContactInfo />
 
       {/* Contact Form & Office Hours */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <ScrollReveal direction="left" delay={0.1}>
-              <Card className="shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
-                <CardHeader>
-                  <CardTitle className="font-playfair text-2xl text-medical-charcoal">
-                    Send Us a Message
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="name" className="font-inter font-medium text-medical-charcoal">
-                          Full Name *
-                        </Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          required
-                          className="mt-1 hover:border-medical-teal focus:border-medical-teal transition-colors duration-200"
-                        />
-                      </div>
-                      
-                      <div>
-                        <Label htmlFor="phone" className="font-inter font-medium text-medical-charcoal">
-                          Phone Number
-                        </Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleInputChange('phone', e.target.value)}
-                          className="mt-1 hover:border-medical-teal focus:border-medical-teal transition-colors duration-200"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="email" className="font-inter font-medium text-medical-charcoal">
-                        Email Address *
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        required
-                        className="mt-1 hover:border-medical-teal focus:border-medical-teal transition-colors duration-200"
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label className="font-inter font-medium text-medical-charcoal">
-                        Subject *
-                      </Label>
-                      <Select value={formData.subject} onValueChange={(value) => handleInputChange('subject', value)}>
-                        <SelectTrigger className="mt-1 hover:border-medical-teal transition-colors duration-200">
-                          <SelectValue placeholder="Select a subject" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="appointment">Schedule Appointment</SelectItem>
-                          <SelectItem value="insurance">Insurance Questions</SelectItem>
-                          <SelectItem value="records">Medical Records</SelectItem>
-                          <SelectItem value="services">Services Information</SelectItem>
-                          <SelectItem value="billing">Billing Inquiry</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div>
-                      <Label className="font-inter font-medium text-medical-charcoal">
-                        Preferred Contact Method
-                      </Label>
-                      <Select value={formData.contactPreference} onValueChange={(value) => handleInputChange('contactPreference', value)}>
-                        <SelectTrigger className="mt-1 hover:border-medical-teal transition-colors duration-200">
-                          <SelectValue placeholder="How would you like us to respond?" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="email">Email</SelectItem>
-                          <SelectItem value="phone">Phone Call</SelectItem>
-                          <SelectItem value="either">Either Email or Phone</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="message" className="font-inter font-medium text-medical-charcoal">
-                        Message *
-                      </Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        placeholder="Please describe your question or concern..."
-                        required
-                        className="mt-1 hover:border-medical-teal focus:border-medical-teal transition-colors duration-200"
-                        rows={5}
-                      />
-                    </div>
-                    
-                    <FadeInButton 
-                      type="submit" 
-                      loading={isSubmitting}
-                      className="bg-medical-deep-blue hover:bg-medical-deep-blue/90 text-white w-full font-inter shadow-lg"
-                    >
-                      {isSubmitting ? 'Sending Message...' : 'Send Message'}
-                    </FadeInButton>
-                    
-                    <p className="font-inter text-sm text-gray-600 text-center">
-                      We'll respond to your message within 24 hours during business days.
-                    </p>
-                  </form>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
+            <ContactForm />
 
             {/* Office Information */}
             <div className="space-y-6">
