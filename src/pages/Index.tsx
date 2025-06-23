@@ -147,10 +147,10 @@ const Index = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-medical-teal/20 to-medical-deep-blue/20 rounded-2xl transform rotate-2 hover:rotate-3 transition-transform duration-500"></div>
               <div className="relative bg-white p-3 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                <img src="/doctor-image.jpg" alt="Dr. Soumya Hegde in her office" className="w-full h-96 object-cover rounded-xl" onError={e => {
+                <img alt="Dr. Soumya Hegde in her office" className="w-full h-96 object-cover rounded-xl" onError={e => {
                 const target = e.target as HTMLImageElement;
                 target.src = "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
-              }} />
+              }} src="https://th.bing.com/th/id/OIP._qKVdNOKwA0IaxoeKKvw_wHaD4?w=314&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" />
               </div>
             </div>
             <div>
