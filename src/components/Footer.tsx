@@ -5,14 +5,14 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-medical-charcoal text-white">
+    <footer className="bg-gradient-to-br from-medical-charcoal to-medical-deep-blue text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Clinic Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-medical-teal rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-medical-teal to-white rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-medical-deep-blue font-bold text-lg">M</span>
               </div>
               <div>
                 <h3 className="font-playfair text-xl font-semibold">Memory Matters</h3>
@@ -25,15 +25,15 @@ const Footer = () => {
             </p>
             
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 hover:text-medical-teal transition-colors duration-200">
                 <Phone size={18} className="text-medical-teal" />
-                <span>+91 9867739963</span>
+                <span>89044 18172</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 hover:text-medical-teal transition-colors duration-200">
                 <Mail size={18} className="text-medical-teal" />
-                <span>info@memorymattersmd.com</span>
+                <span>memorymattersindia@gmail.com</span>
               </div>
-              <div className="flex items-start space-x-3">
+              <div className="flex items-start space-x-3 hover:text-medical-teal transition-colors duration-200">
                 <MapPin size={18} className="text-medical-teal mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Dr. Soumya Hegde : Memory Matters</p>
@@ -48,19 +48,19 @@ const Footer = () => {
           <div>
             <h4 className="font-playfair text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <Link to="/about" className="block text-gray-300 hover:text-medical-teal transition-colors">
+              <Link to="/about" className="block text-gray-300 hover:text-medical-teal transition-colors duration-200 hover:translate-x-1">
                 About Dr. Hegde
               </Link>
-              <Link to="/services" className="block text-gray-300 hover:text-medical-teal transition-colors">
+              <Link to="/services" className="block text-gray-300 hover:text-medical-teal transition-colors duration-200 hover:translate-x-1">
                 Our Services
               </Link>
-              <Link to="/appointment" className="block text-gray-300 hover:text-medical-teal transition-colors">
+              <Link to="/appointment" className="block text-gray-300 hover:text-medical-teal transition-colors duration-200 hover:translate-x-1">
                 Book Appointment
               </Link>
-              <Link to="/resources" className="block text-gray-300 hover:text-medical-teal transition-colors">
+              <Link to="/resources" className="block text-gray-300 hover:text-medical-teal transition-colors duration-200 hover:translate-x-1">
                 Patient Resources
               </Link>
-              <Link to="/contact" className="block text-gray-300 hover:text-medical-teal transition-colors">
+              <Link to="/contact" className="block text-gray-300 hover:text-medical-teal transition-colors duration-200 hover:translate-x-1">
                 Contact Us
               </Link>
             </div>
@@ -70,14 +70,14 @@ const Footer = () => {
           <div>
             <h4 className="font-playfair text-lg font-semibold mb-4">Office Hours</h4>
             <div className="space-y-2 text-gray-300">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 hover:text-medical-teal transition-colors duration-200">
                 <Clock size={16} className="text-medical-teal" />
                 <span className="text-sm">Mon-Thu: 8:00 AM - 5:00 PM</span>
               </div>
-              <div className="pl-6 text-sm">Friday: 8:00 AM - 4:00 PM</div>
-              <div className="pl-6 text-sm">Saturday: 9:00 AM - 1:00 PM</div>
+              <div className="pl-6 text-sm hover:text-medical-teal transition-colors duration-200">Friday: 8:00 AM - 4:00 PM</div>
+              <div className="pl-6 text-sm hover:text-medical-teal transition-colors duration-200">Saturday: 9:00 AM - 1:00 PM</div>
               <div className="pl-6 text-sm">Sunday: Closed</div>
-              <div className="pt-2 text-sm text-medical-teal">
+              <div className="pt-2 text-sm text-medical-teal font-medium">
                 Emergency calls accepted 24/7
               </div>
             </div>
@@ -89,10 +89,10 @@ const Footer = () => {
             © 2024 Memory Matters Clinic. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-medical-teal text-sm transition-colors">
+            <Link to="/privacy" className="text-gray-400 hover:text-medical-teal text-sm transition-colors duration-200">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-medical-teal text-sm transition-colors">
+            <Link to="/terms" className="text-gray-400 hover:text-medical-teal text-sm transition-colors duration-200">
               Terms of Service
             </Link>
             <span className="text-gray-400 text-sm">HIPAA Compliant</span>

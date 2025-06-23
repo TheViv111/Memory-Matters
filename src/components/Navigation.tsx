@@ -21,12 +21,12 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="bg-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-white/95">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-medical-teal rounded-full flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-2 hover:scale-105 transition-transform duration-200">
+            <div className="w-10 h-10 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">M</span>
             </div>
             <div>
@@ -43,9 +43,9 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-inter text-sm transition-colors duration-200 ${
+                className={`font-inter text-sm transition-all duration-200 hover:scale-105 ${
                   isActive(item.path)
-                    ? 'text-medical-teal font-medium'
+                    ? 'text-medical-teal font-medium border-b-2 border-medical-teal'
                     : 'text-gray-700 hover:text-medical-teal'
                 }`}
               >
@@ -54,13 +54,13 @@ const Navigation = () => {
             ))}
             
             {/* Emergency Contact */}
-            <div className="flex items-center space-x-2 text-medical-deep-blue">
+            <div className="flex items-center space-x-2 text-medical-deep-blue hover:scale-105 transition-transform duration-200">
               <Phone size={16} />
-              <span className="text-sm font-medium">(555) 123-4567</span>
+              <span className="text-sm font-medium">89044 18172</span>
             </div>
             
             <Link to="/appointment">
-              <Button className="bg-medical-deep-blue hover:bg-medical-deep-blue/90 text-white font-inter">
+              <Button className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white font-inter shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Book Appointment
               </Button>
             </Link>
@@ -69,7 +69,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-medical-teal"
+            className="md:hidden p-2 text-gray-600 hover:text-medical-teal transition-colors duration-200"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -77,7 +77,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="md:hidden py-4 border-t bg-white/95 backdrop-blur-sm">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
@@ -96,11 +96,11 @@ const Navigation = () => {
               
               <div className="flex items-center space-x-2 text-medical-deep-blue pt-2">
                 <Phone size={16} />
-                <span className="text-sm font-medium">(555) 123-4567</span>
+                <span className="text-sm font-medium">89044 18172</span>
               </div>
               
               <Link to="/appointment" onClick={() => setIsOpen(false)}>
-                <Button className="bg-medical-deep-blue hover:bg-medical-deep-blue/90 text-white font-inter w-full">
+                <Button className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white font-inter w-full shadow-lg">
                   Book Appointment
                 </Button>
               </Link>
