@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Heart } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,96 +20,150 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+    <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-medical-teal/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 hover:scale-105 transition-transform duration-200">
-            <div className="w-10 h-10 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg">M</span>
+          {/* Logo and Practice Name */}
+          <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200">
+            <div className="w-10 h-10 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full flex items-center justify-center">
+              <Heart className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="font-playfair text-xl text-medical-charcoal font-semibold">
+              <div className="font-playfair text-xl font-bold text-medical-charcoal">
                 Memory Matters
-              </h1>
-              <p className="text-xs text-gray-600 -mt-1">Neurology & Memory Care</p>
+              </div>
+              <div className="font-inter text-xs text-medical-teal">
+                Dr. Soumya Hegde
+              </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`font-inter text-sm transition-all duration-200 hover:scale-105 ${
-                  isActive(item.path)
-                    ? 'text-medical-teal font-medium border-b-2 border-medical-teal'
-                    : 'text-gray-700 hover:text-medical-teal'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* Emergency Contact */}
-            <a 
-              href="tel:8904418172"
-              className="flex items-center space-x-2 text-medical-deep-blue hover:scale-105 transition-transform duration-200 hover:text-medical-teal"
+            <Link 
+              to="/" 
+              className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group"
             >
-              <Phone size={16} />
-              <span className="text-sm font-medium">89044 18172</span>
-            </a>
+              Home
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-teal transition-all duration-200 group-hover:w-full"></span>
+            </Link>
+            <Link 
+              to="/about" 
+              className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group"
+            >
+              About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-teal transition-all duration-200 group-hover:w-full"></span>
+            </Link>
+            <Link 
+              to="/services" 
+              className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group"
+            >
+              Services
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-teal transition-all duration-200 group-hover:w-full"></span>
+            </Link>
+            <Link 
+              to="/faqs" 
+              className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group"
+            >
+              FAQs
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-teal transition-all duration-200 group-hover:w-full"></span>
+            </Link>
+            <Link 
+              to="/contact" 
+              className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group"
+            >
+              Contact
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-teal transition-all duration-200 group-hover:w-full"></span>
+            </Link>
             
+            {/* CTA Button */}
             <Link to="/appointment">
-              <Button className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white font-inter shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <Button className="bg-medical-deep-blue hover:bg-medical-deep-blue/90 text-white px-6 py-2 font-inter shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 Book Appointment
               </Button>
             </Link>
+            
+            {/* Emergency Contact */}
+            <div className="flex items-center space-x-2 px-4 py-2 bg-medical-teal/5 rounded-lg border border-medical-teal/20">
+              <Phone className="w-4 h-4 text-medical-teal" />
+              <a 
+                href="tel:8904418172" 
+                className="font-inter text-sm font-medium text-medical-deep-blue hover:text-medical-teal transition-colors"
+              >
+                89044 18172
+              </a>
+            </div>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-medical-teal transition-colors duration-200"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-700 hover:text-medical-teal focus:outline-none focus:text-medical-teal transition-colors duration-200"
+              aria-label="Toggle navigation menu"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t bg-white/95 backdrop-blur-sm">
+          <div className="md:hidden py-4 border-t border-gray-100 bg-white/95 backdrop-blur-sm">
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`font-inter text-sm transition-colors duration-200 ${
-                    isActive(item.path)
-                      ? 'text-medical-teal font-medium'
-                      : 'text-gray-700 hover:text-medical-teal'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              
-              <a 
-                href="tel:8904418172"
-                className="flex items-center space-x-2 text-medical-deep-blue pt-2"
+              <Link 
+                to="/" 
+                className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1"
                 onClick={() => setIsOpen(false)}
               >
-                <Phone size={16} />
-                <span className="text-sm font-medium">89044 18172</span>
-              </a>
-              
-              <Link to="/appointment" onClick={() => setIsOpen(false)}>
-                <Button className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white font-inter w-full shadow-lg">
-                  Book Appointment
-                </Button>
+                Home
               </Link>
+              <Link 
+                to="/about" 
+                className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                to="/services" 
+                className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                Services
+              </Link>
+              <Link 
+                to="/faqs" 
+                className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                FAQs
+              </Link>
+              <Link 
+                to="/contact" 
+                className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </Link>
+              
+              <div className="pt-4 border-t border-gray-100 space-y-3">
+                <Link to="/appointment" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-medical-deep-blue hover:bg-medical-deep-blue/90 text-white font-inter">
+                    Book Appointment
+                  </Button>
+                </Link>
+                
+                <div className="flex items-center justify-center space-x-2 px-4 py-2 bg-medical-teal/5 rounded-lg border border-medical-teal/20">
+                  <Phone className="w-4 h-4 text-medical-teal" />
+                  <a 
+                    href="tel:8904418172" 
+                    className="font-inter text-sm font-medium text-medical-deep-blue"
+                  >
+                    Emergency: 89044 18172
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         )}

@@ -10,36 +10,36 @@ const CredentialsSection = () => {
       icon: GraduationCap,
       title: "Medical Education",
       details: [
-        "MBBS - Bangalore Medical College",
-        "MD Neurology - NIMHANS, Bangalore",
-        "Fellowship in Movement Disorders"
+        "MBBS - Grant Medical College & Sir JJ Hospital, Mumbai",
+        "DPM (Psychiatry) - Lokmanya Tilak Municipal Medical College, Sion, Mumbai",
+        "MRCPsych - Royal College of Psychiatrists"
       ]
     },
     {
       icon: Award,
-      title: "Board Certifications",
+      title: "Specialized Training",
       details: [
-        "Indian Medical Association",
-        "Neurological Society of India",
-        "Movement Disorder Society"
+        "CCT in Old Age Psychiatry",
+        "Certificate of Completion of Training",
+        "Member of Royal College of Psychiatrists"
       ]
     },
     {
       icon: Users,
       title: "Professional Experience",
       details: [
-        "Senior Neurologist - Apollo Hospitals",
-        "Consultant - Manipal Hospital",
-        "10+ Years Clinical Practice"
+        "Geriatric Psychiatrist",
+        "Memory Disorders Specialist",
+        "15+ Years Clinical Practice"
       ]
     },
     {
       icon: Heart,
-      title: "Specializations",
+      title: "Areas of Expertise",
       details: [
+        "Old Age Psychiatry",
         "Memory Disorders & Dementia",
-        "Movement Disorders",
-        "Stroke & Cerebrovascular Disease"
+        "Cognitive Health Assessment"
       ]
     }
   ];
@@ -54,8 +54,8 @@ const CredentialsSection = () => {
             </h2>
             <div className="w-20 h-1 bg-medical-teal mx-auto mb-6"></div>
             <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
-              Extensive training and experience in neurological care with a focus on compassionate, 
-              evidence-based treatment approaches.
+              Extensive training and experience in geriatric psychiatry with a focus on compassionate, 
+              evidence-based treatment approaches for older adults.
             </p>
           </div>
         </ScrollReveal>
