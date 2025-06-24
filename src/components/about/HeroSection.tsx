@@ -44,7 +44,7 @@ const HeroSection = () => {
               </div>
               
               <div className="flex flex-wrap gap-3">
-                {["MBBS - Grant Medical College", "DPM Psychiatry - LTMMC", "MRCPsych - Royal College", "CCT Old Age Psychiatry"].map((credential, index) => (
+                {["MBBS", "DPM (Psychiatry)", "MRCPsych", "CCT Old Age Psychiatry"].map((credential, index) => (
                   <div key={index} className="bg-gradient-to-r from-medical-teal/10 to-medical-deep-blue/10 px-4 py-2 rounded-full border border-medical-teal/20 hover:from-medical-teal/20 hover:to-medical-deep-blue/20 transition-all duration-300">
                     <span className="font-inter text-medical-deep-blue font-medium text-sm">{credential}</span>
                   </div>
@@ -64,7 +64,7 @@ const HeroSection = () => {
                     const target = e.target as HTMLImageElement;
                     target.src = "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
                   }} 
-                  className="w-full h-96 rounded-2xl object-cover object-center" 
+                  className="w-full h-[500px] rounded-2xl object-contain object-center bg-gray-50" 
                   src="/doctor-image.jpg" 
                 />
                 <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
