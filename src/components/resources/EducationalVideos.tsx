@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Play } from 'lucide-react';
@@ -6,22 +5,22 @@ import { Play } from 'lucide-react';
 const EducationalVideos = () => {
   const educationalVideos = [
     {
-      title: "Understanding Memory Loss",
+      title: "Memory Loss: When to Worry",
       videoId: "hF81KFUUHyY",
       description: "Comprehensive guide to recognizing and understanding memory loss symptoms and when to seek help."
     },
     {
-      title: "Neurological Health Basics",
+      title: "Brain Health and Neurological Wellness", 
       videoId: "7ocAVulSUw8", 
       description: "Essential information about maintaining brain health and neurological wellness."
     },
     {
-      title: "Dementia Care Strategies",
+      title: "Caring for Someone with Dementia",
       videoId: "mt_-GIwBRd0",
       description: "Practical approaches to caring for loved ones with dementia and memory disorders."
     },
     {
-      title: "Movement Disorders Overview",
+      title: "Understanding Parkinson's Disease",
       videoId: "rSMVthBsBG0",
       description: "Understanding Parkinson's disease and other movement disorders - symptoms and treatments."
     }
