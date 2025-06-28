@@ -19,10 +19,29 @@ interface BookingFormProps {
 }
 
 const BookingForm = ({ selectedDate, setSelectedDate, selectedTime, setSelectedTime }: BookingFormProps) => {
-  const availableTimes = [
-    '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-    '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM'
-  ];
+  // Generate time slots with 45-minute appointments and 15-minute breaks
+  const generateTimeSlots = () => {
+    const slots = [];
+    
+    // Morning slots: 9:00 AM to 12:00 PM
+    const morningSlots = [
+      '9:00 AM - 9:45 AM',
+      '10:00 AM - 10:45 AM', 
+      '11:00 AM - 11:45 AM'
+    ];
+    
+    // Afternoon slots: 1:00 PM to 5:00 PM
+    const afternoonSlots = [
+      '1:00 PM - 1:45 PM',
+      '2:00 PM - 2:45 PM',
+      '3:00 PM - 3:45 PM',
+      '4:00 PM - 4:45 PM'
+    ];
+    
+    return [...morningSlots, ...afternoonSlots];
+  };
+
+  const availableTimes = generateTimeSlots();
 
   return (
     <ScrollReveal direction="up" delay={0.2}>
@@ -36,7 +55,7 @@ const BookingForm = ({ selectedDate, setSelectedDate, selectedTime, setSelectedT
             Select Date & Time
           </CardTitle>
           <p className="text-center text-sm text-gray-600 font-inter">
-            Choose your preferred appointment slot
+            Choose your preferred appointment slot (45 minutes each)
           </p>
           <div className="w-12 h-0.5 bg-gradient-to-r from-medical-teal to-medical-orange mx-auto mt-2"></div>
         </CardHeader>
@@ -78,24 +97,27 @@ const BookingForm = ({ selectedDate, setSelectedDate, selectedTime, setSelectedT
             <div className="space-y-2">
               <Label className="font-inter font-medium text-medical-charcoal flex items-center">
                 <Clock className="w-4 h-4 mr-2 text-medical-teal" />
-                Preferred Time *
+                Preferred Time Slot *
               </Label>
               <Select value={selectedTime} onValueChange={setSelectedTime}>
                 <SelectTrigger className="border-2 hover:border-medical-teal transition-all duration-300 bg-white shadow-md hover:shadow-lg hover:bg-gradient-to-r hover:from-medical-teal/5 hover:to-medical-orange/5">
-                  <SelectValue placeholder="Select a time" />
+                  <SelectValue placeholder="Select a time slot" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-medical-teal/20 shadow-xl rounded-xl">
-                  {availableTimes.map((time) => (
+                  {availableTimes.map((timeSlot) => (
                     <SelectItem 
-                      key={time} 
-                      value={time}
+                      key={timeSlot} 
+                      value={timeSlot}
                       className="hover:bg-gradient-to-r hover:from-medical-teal/10 hover:to-medical-orange/10 focus:bg-gradient-to-r focus:from-medical-teal/10 focus:to-medical-orange/10 transition-all duration-200 rounded-lg margin-1"
                     >
-                      {time}
+                      {timeSlot}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
+              <p className="text-xs text-gray-500 font-inter mt-1">
+                Each appointment is 45 minutes with professional consultation
+              </p>
             </div>
           </div>
           
@@ -108,7 +130,10 @@ const BookingForm = ({ selectedDate, setSelectedDate, selectedTime, setSelectedT
                     Your Selected Appointment
                   </p>
                   <p className="font-playfair text-lg font-semibold text-medical-charcoal bg-gradient-to-r from-medical-teal to-medical-deep-blue bg-clip-text text-transparent">
-                    {format(selectedDate, "EEEE, MMMM do, yyyy")} at {selectedTime}
+                    {format(selectedDate, "EEEE, MMMM do, yyyy")}
+                  </p>
+                  <p className="font-inter text-md text-medical-deep-blue font-medium mt-1">
+                    {selectedTime}
                   </p>
                   <div className="w-16 h-0.5 bg-gradient-to-r from-medical-teal to-medical-orange mx-auto mt-2"></div>
                 </div>
