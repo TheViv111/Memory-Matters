@@ -28,18 +28,13 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Enhanced Logo */}
+          {/* Simplified Logo */}
           <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group">
             <div className="w-10 h-10 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
               <Award className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <div className="font-playfair text-xl font-bold text-medical-charcoal">
-                Memory Matters
-              </div>
-              <div className="font-inter text-xs text-medical-teal hidden sm:block">
-                Dr. Soumya Hegde • Geriatric Psychiatrist
-              </div>
+            <div className="font-playfair text-xl font-bold text-medical-charcoal">
+              Memory Matters
             </div>
           </Link>
 
@@ -50,7 +45,6 @@ const Navigation = () => {
               { name: 'About', path: '/about' },
               { name: 'Services', path: '/services' },
               { name: 'Resources', path: '/resources' },
-              { name: 'FAQs', path: '/faqs' },
               { name: 'Contact', path: '/contact' }
             ].map((item) => (
               <Link 
@@ -67,20 +61,18 @@ const Navigation = () => {
               </Link>
             ))}
             
-            {/* Enhanced CTA Button */}
+            {/* Simplified CTA Button */}
             <Link to="/appointment">
               <Button className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white px-6 py-2 text-sm font-inter shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-lg">
                 Book Appointment
               </Button>
             </Link>
             
-            {/* Professional Contact */}
-            <div className="flex items-center space-x-2 px-4 py-2 bg-medical-teal/10 rounded-lg border border-medical-teal/20 hover:bg-medical-teal/20 transition-all duration-300">
-              <Phone className="w-4 h-4 text-medical-orange" />
-              <a href="tel:8904418172" className="font-inter text-sm font-medium text-medical-deep-blue hover:text-medical-orange transition-colors">
-                89044 18172
-              </a>
-            </div>
+            {/* Contact */}
+            <a href="tel:8904418172" className="flex items-center space-x-2 px-3 py-2 text-medical-deep-blue hover:text-medical-orange transition-colors">
+              <Phone className="w-4 h-4" />
+              <span className="font-inter text-sm font-medium">89044 18172</span>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -95,7 +87,7 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Enhanced Mobile Navigation */}
+        {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
             <div className="px-4 py-4 space-y-3">
@@ -104,7 +96,6 @@ const Navigation = () => {
                 { name: 'About', path: '/about' },
                 { name: 'Services', path: '/services' },
                 { name: 'Resources', path: '/resources' },
-                { name: 'FAQs', path: '/faqs' },
                 { name: 'Contact', path: '/contact' }
               ].map((item) => (
                 <Link 
@@ -128,12 +119,10 @@ const Navigation = () => {
                   </Button>
                 </Link>
                 
-                <div className="flex items-center justify-center space-x-2 px-4 py-3 bg-medical-teal/10 rounded-lg border border-medical-teal/20">
-                  <Phone className="w-4 h-4 text-medical-orange" />
-                  <a href="tel:8904418172" className="font-inter text-sm font-medium text-medical-deep-blue">
-                    Emergency: 89044 18172
-                  </a>
-                </div>
+                <a href="tel:8904418172" className="flex items-center justify-center space-x-2 px-4 py-3 text-medical-deep-blue">
+                  <Phone className="w-4 h-4" />
+                  <span className="font-inter text-sm font-medium">89044 18172</span>
+                </a>
               </div>
             </div>
           </div>
