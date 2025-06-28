@@ -21,7 +21,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-medical-beige to-white overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-medical-beige to-white overflow-hidden pt-24">
       {/* Spline Background */}
       <div className="absolute inset-0 z-0">
         <spline-viewer 
@@ -33,8 +33,8 @@ const HeroSection = () => {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-medical-beige/60 via-medical-beige/40 to-transparent z-10" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 h-screen flex items-center">
-        <div className="w-full text-left">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 min-h-screen flex items-center">
+        <div className="w-full text-left py-12">
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full mb-8 shadow-lg border border-medical-teal/20">
               <span className="text-medical-teal font-inter text-sm font-medium">Geriatric Psychiatrist & Memory Care Specialist</span>
