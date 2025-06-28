@@ -258,7 +258,7 @@ const Index = () => {
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" className="border-white hover:bg-white hover:text-medical-deep-blue px-8 py-3 text-lg font-inter transition-all duration-300 hover:scale-105 text-slate-950">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-medical-deep-blue px-8 py-3 text-lg font-inter transition-all duration-300 hover:scale-105">
                 Contact Our Office
               </Button>
             </Link>
