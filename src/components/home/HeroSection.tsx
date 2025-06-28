@@ -29,7 +29,7 @@ const HeroSection = () => {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-20 min-h-screen flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start w-full">
           {/* Content Section */}
           <div className="animate-fade-in">
             {/* Professional Badge */}
@@ -75,25 +75,6 @@ const HeroSection = () => {
               </Link>
             </div>
             
-            {/* Professional Credentials */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {[
-                { title: "15+ Years", desc: "Clinical Experience", icon: <Award className="w-6 h-6 text-medical-teal" /> },
-                { title: "1000+ Patients", desc: "Successfully Treated", icon: <Star className="w-6 h-6 text-medical-orange" /> },
-                { title: "Specialized Care", desc: "Memory & Cognitive Health", icon: <Shield className="w-6 h-6 text-medical-deep-blue" /> }
-              ].map((credential, index) => (
-                <div key={index} className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-medical-teal/20 hover:shadow-xl transition-all duration-300 hover:scale-105 group">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 bg-gradient-to-br from-medical-teal/10 to-medical-deep-blue/10 rounded-lg group-hover:scale-110 transition-transform duration-300">
-                      {credential.icon}
-                    </div>
-                  </div>
-                  <h3 className="font-playfair text-lg font-semibold text-medical-deep-blue mb-2">{credential.title}</h3>
-                  <p className="font-inter text-gray-600 text-sm">{credential.desc}</p>
-                </div>
-              ))}
-            </div>
-            
             {/* Contact Information */}
             <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border-l-4 border-medical-teal p-6 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center space-x-4">
@@ -112,16 +93,20 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Professional Visual Element */}
-          <div className="relative lg:ml-8">
+          {/* Professional Doctor Card - Moved Up */}
+          <div className="relative lg:ml-8 lg:mt-0 mt-8">
             {/* Main Professional Card */}
             <div className="relative">
               <div className="bg-gradient-to-br from-white via-slate-50 to-blue-50 p-8 rounded-3xl shadow-2xl border border-medical-teal/20 hover:shadow-3xl transition-all duration-500 hover:scale-105 backdrop-blur-sm">
                 <div className="space-y-8">
-                  {/* Header */}
+                  {/* Doctor Image */}
                   <div className="text-center">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full flex items-center justify-center shadow-lg">
-                      <Award className="w-10 h-10 text-white" />
+                    <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-xl border-4 border-white">
+                      <img 
+                        src="/lovable-uploads/76dc60d7-260b-44ed-8802-e008f6b9a2dd.png" 
+                        alt="Dr. Soumya Hegde" 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="font-playfair text-2xl text-medical-charcoal mb-2">Dr. Soumya Hegde</h3>
                     <p className="font-inter text-medical-teal font-medium">Geriatric Psychiatrist</p>
