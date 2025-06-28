@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 
 const ResourcesHero = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 pb-8 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal direction="up" delay={0.1}>
           <h1 className="font-playfair text-4xl md:text-5xl text-medical-charcoal mb-6">
