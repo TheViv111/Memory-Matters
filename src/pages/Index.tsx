@@ -49,7 +49,7 @@ const Index = () => {
                   <Phone className="text-medical-deep-blue" size={20} />
                   <div>
                     <p className="text-sm text-gray-600">Call Us At</p>
-                    <p className="font-semibold text-medical-deep-blue">89044 18172</p>
+                    <p className="font-semibold text-medical-deep-blue">+91 89044 18172</p>
                   </div>
                 </div>
               </div>
