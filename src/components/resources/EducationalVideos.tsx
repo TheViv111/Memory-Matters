@@ -7,26 +7,6 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 const EducationalVideos = () => {
   const educationalVideos = [
     {
-      title: "Treating anxiety in the elderly",
-      videoId: "hF81KFUUHyY",
-      description: "Comprehensive guide to treating anxiety disorders in elderly patients and when to seek professional help."
-    },
-    {
-      title: "Diagnosing anxiety in the elderly", 
-      videoId: "7ocAVulSUw8", 
-      description: "Essential information about recognizing and diagnosing anxiety symptoms in elderly patients."
-    },
-    {
-      title: "I'm a senior citizen and my spouse has anxiety",
-      videoId: "mt_-GIwBRd0",
-      description: "Practical approaches for senior citizens supporting spouses with anxiety disorders."
-    },
-    {
-      title: "My father refuses to seek therapy",
-      videoId: "rSMVthBsBG0",
-      description: "Understanding and addressing resistance to therapy in elderly family members."
-    },
-    {
       title: "Understanding Mental Health Challenges",
       videoId: "uNzQu1L2jXk",
       description: "Comprehensive overview of mental health challenges and treatment approaches."
@@ -42,14 +22,34 @@ const EducationalVideos = () => {
       description: "How families can effectively support loved ones dealing with mental health issues."
     },
     {
+      title: "Diagnosing anxiety in the elderly", 
+      videoId: "7ocAVulSUw8", 
+      description: "Essential information about recognizing and diagnosing anxiety symptoms in elderly patients."
+    },
+    {
+      title: "Treating anxiety in the elderly",
+      videoId: "hF81KFUUHyY",
+      description: "Comprehensive guide to treating anxiety disorders in elderly patients and when to seek professional help."
+    },
+    {
       title: "Early Detection and Intervention",
       videoId: "sqWZzesfSiI",
       description: "The importance of early detection and intervention in mental health care."
     },
     {
+      title: "My father refuses to seek therapy",
+      videoId: "rSMVthBsBG0",
+      description: "Understanding and addressing resistance to therapy in elderly family members."
+    },
+    {
       title: "Neurological Health Awareness",
       videoId: "UCud3PegZCk",
       description: "Building awareness about neurological health and preventive care strategies."
+    },
+    {
+      title: "I'm a senior citizen and my spouse has anxiety",
+      videoId: "mt_-GIwBRd0",
+      description: "Practical approaches for senior citizens supporting spouses with anxiety disorders."
     }
   ];
 
