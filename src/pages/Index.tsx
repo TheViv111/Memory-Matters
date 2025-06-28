@@ -5,10 +5,11 @@ import Footer from '@/components/Footer';
 import HeroSection from '@/components/home/HeroSection';
 import ProfessionalCredentials from '@/components/home/ProfessionalCredentials';
 import PatientTestimonials from '@/components/home/PatientTestimonials';
+import GoogleMap from '@/components/GoogleMap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Heart, Users, Calendar, Shield, Clock, CheckCircle } from 'lucide-react';
+import { Heart, Users, Calendar, Shield, Clock, CheckCircle, MapPin } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -80,6 +81,27 @@ const Index = () => {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section */}
+      <section className="py-20 bg-gradient-to-br from-medical-beige/30 to-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-2 bg-medical-teal/10 rounded-full mb-6">
+              <MapPin className="w-4 h-4 text-medical-teal mr-2" />
+              <span className="text-medical-teal font-inter text-sm font-medium">Visit Our Clinic</span>
+            </div>
+            <h2 className="font-playfair text-4xl md:text-5xl text-medical-charcoal mb-6">
+              Find Us in Bengaluru
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-medical-teal to-medical-orange mx-auto mb-6"></div>
+            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
+              Conveniently located in Murugeshpalya with easy access and parking facilities
+            </p>
+          </div>
+          
+          <GoogleMap />
         </div>
       </section>
 

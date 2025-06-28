@@ -17,9 +17,20 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Scroll to top whenever the route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   
   const isActive = (path: string) => {
     return location.pathname === path;
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    // Additional scroll to top for immediate feedback
+    window.scrollTo(0, 0);
   };
   
   return (
@@ -29,7 +40,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Simplified Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group">
+          <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group" onClick={handleLinkClick}>
             <div className="w-10 h-10 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
               <Award className="w-5 h-5 text-white" />
             </div>
@@ -55,6 +66,7 @@ const Navigation = () => {
                     ? 'text-medical-teal bg-medical-teal/10' 
                     : 'text-gray-700 hover:text-medical-teal hover:bg-gray-50'
                 }`}
+                onClick={handleLinkClick}
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-medical-teal to-medical-orange transition-all duration-300 group-hover:w-full"></span>
@@ -62,7 +74,7 @@ const Navigation = () => {
             ))}
             
             {/* Simplified CTA Button */}
-            <Link to="/appointment">
+            <Link to="/appointment" onClick={handleLinkClick}>
               <Button className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white px-6 py-2 text-sm font-inter shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-lg">
                 Book Appointment
               </Button>
@@ -106,14 +118,14 @@ const Navigation = () => {
                       ? 'text-medical-teal bg-medical-teal/10' 
                       : 'text-gray-700 hover:text-medical-teal hover:bg-gray-50'
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleLinkClick}
                 >
                   {item.name}
                 </Link>
               ))}
               
               <div className="pt-3 border-t border-gray-200 space-y-3">
-                <Link to="/appointment" onClick={() => setIsOpen(false)}>
+                <Link to="/appointment" onClick={handleLinkClick}>
                   <Button className="w-full bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white font-inter rounded-lg shadow-lg">
                     Book Appointment
                   </Button>
