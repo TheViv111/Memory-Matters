@@ -1,25 +1,22 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Phone, Clock, CheckCircle, Star, Award, Shield, Users, Calendar } from 'lucide-react';
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen bg-gradient-to-br from-white via-medical-beige/30 to-medical-teal/5 overflow-hidden">
+  return <section className="relative min-h-screen bg-gradient-to-br from-white via-medical-beige/30 to-medical-teal/5 overflow-hidden">
       {/* Professional Background Pattern */}
       <div className="absolute inset-0 z-0">
         {/* Subtle medical cross pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="grid grid-cols-12 gap-8 h-full">
-            {Array.from({ length: 48 }).map((_, i) => (
-              <div key={i} className="relative">
+            {Array.from({
+            length: 48
+          }).map((_, i) => <div key={i} className="relative">
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4">
                   <div className="w-full h-0.5 bg-medical-teal"></div>
                   <div className="w-0.5 h-full bg-medical-teal absolute top-0 left-1/2 transform -translate-x-1/2"></div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
         
@@ -35,7 +32,8 @@ const HeroSection = () => {
             {/* Professional Badge */}
             <div className="inline-flex items-center px-6 py-3 bg-white/95 backdrop-blur-sm rounded-full mb-8 shadow-lg border border-medical-teal/20 hover:shadow-xl transition-all duration-300">
               <Award className="w-4 h-4 text-medical-teal mr-2" />
-              <span className="text-medical-teal font-inter text-sm font-medium">MRCPsych, CCT in Old Age Psychiatry</span>
+              <span className="text-medical-teal font-inter text-sm font-medium">Geriatric Psychiatrist
+            </span>
             </div>
             
             <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-medical-charcoal mb-8 leading-tight">
@@ -140,8 +138,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
