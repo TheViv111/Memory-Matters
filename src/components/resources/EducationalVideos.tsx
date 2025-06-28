@@ -7,17 +7,17 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 const EducationalVideos = () => {
   const educationalVideos = [
     {
-      title: "Understanding Mental Health Challenges",
+      title: "Anxiety in the elderly with Dr Soumya Hegde",
       videoId: "uNzQu1L2jXk",
       description: "Comprehensive overview of mental health challenges and treatment approaches."
     },
     {
-      title: "Cognitive Health and Aging",
+      title: "Anxiety: An alarm and a motivator",
       videoId: "d2DLgziAR0Y",
       description: "Important insights into cognitive health changes as we age and prevention strategies."
     },
     {
-      title: "Family Support in Mental Health",
+      title: "Anxiety in the elderly: What's different?",
       videoId: "_iJAqVlbocY",
       description: "How families can effectively support loved ones dealing with mental health issues."
     },
@@ -32,7 +32,7 @@ const EducationalVideos = () => {
       description: "Comprehensive guide to treating anxiety disorders in elderly patients and when to seek professional help."
     },
     {
-      title: "Early Detection and Intervention",
+      title: "Anxiety in the elderly: FAQs",
       videoId: "sqWZzesfSiI",
       description: "The importance of early detection and intervention in mental health care."
     },
@@ -42,7 +42,7 @@ const EducationalVideos = () => {
       description: "Understanding and addressing resistance to therapy in elderly family members."
     },
     {
-      title: "Neurological Health Awareness",
+      title: "My mother lives alone",
       videoId: "UCud3PegZCk",
       description: "Building awareness about neurological health and preventive care strategies."
     },
