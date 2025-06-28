@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -15,12 +14,14 @@ import BookingForm from '@/components/appointment/BookingForm';
 import PersonalInfoForm from '@/components/appointment/PersonalInfoForm';
 import MedicalInfoForm from '@/components/appointment/MedicalInfoForm';
 import EmergencyContactForm from '@/components/appointment/EmergencyContactForm';
+import AdvancedBookingSystem from '@/components/appointment/AdvancedBookingSystem';
 
 const Appointment = () => {
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [selectedTime, setSelectedTime] = useState<string>('');
   const [appointmentType, setAppointmentType] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [useAdvancedBooking, setUseAdvancedBooking] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -125,52 +126,87 @@ const Appointment = () => {
         setAppointmentType={setAppointmentType}
       />
 
-      {/* Enhanced Main Booking Form */}
-      <section className="py-16 bg-white/80 backdrop-blur-sm relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-medical-teal/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-medical-orange/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <BookingForm
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-              selectedTime={selectedTime}
-              setSelectedTime={setSelectedTime}
-            />
-
-            <PersonalInfoForm
-              formData={formData}
-              handleInputChange={handleInputChange}
-            />
-
-            <MedicalInfoForm
-              formData={formData}
-              handleInputChange={handleInputChange}
-            />
-
-            <EmergencyContactForm
-              formData={formData}
-              handleInputChange={handleInputChange}
-            />
-
-            <ScrollReveal direction="up" delay={0.6}>
-              <div className="text-center pt-6">
-                <FadeInButton 
-                  type="submit" 
-                  loading={isSubmitting}
-                  className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white px-12 py-4 text-lg font-inter shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 rounded-xl border-2 border-white/50 backdrop-blur-sm"
-                >
-                  {isSubmitting ? 'Submitting Request...' : 'Request Appointment'}
-                </FadeInButton>
-                <p className="font-inter text-sm text-gray-600 mt-4">
-                  We'll contact you within 24 hours to confirm your appointment
-                </p>
-              </div>
-            </ScrollReveal>
-          </form>
+      {/* Booking System Toggle */}
+      <section className="py-8 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center space-x-4">
+            <button
+              onClick={() => setUseAdvancedBooking(false)}
+              className={`px-6 py-3 rounded-lg font-inter transition-all duration-300 ${
+                !useAdvancedBooking
+                  ? 'bg-medical-teal text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              Standard Booking
+            </button>
+            <button
+              onClick={() => setUseAdvancedBooking(true)}
+              className={`px-6 py-3 rounded-lg font-inter transition-all duration-300 ${
+                useAdvancedBooking
+                  ? 'bg-medical-teal text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              Advanced Booking System
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* Conditional Booking System */}
+      {useAdvancedBooking ? (
+        <AdvancedBookingSystem />
+      ) : (
+        <>
+          {/* Enhanced Main Booking Form */}
+          <section className="py-16 bg-white/80 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-medical-teal/5 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-80 h-80 bg-medical-orange/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <BookingForm
+                  selectedDate={selectedDate}
+                  setSelectedDate={setSelectedDate}
+                  selectedTime={selectedTime}
+                  setSelectedTime={setSelectedTime}
+                />
+
+                <PersonalInfoForm
+                  formData={formData}
+                  handleInputChange={handleInputChange}
+                />
+
+                <MedicalInfoForm
+                  formData={formData}
+                  handleInputChange={handleInputChange}
+                />
+
+                <EmergencyContactForm
+                  formData={formData}
+                  handleInputChange={handleInputChange}
+                />
+
+                <ScrollReveal direction="up" delay={0.6}>
+                  <div className="text-center pt-6">
+                    <FadeInButton 
+                      type="submit" 
+                      loading={isSubmitting}
+                      className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white px-12 py-4 text-lg font-inter shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 rounded-xl border-2 border-white/50 backdrop-blur-sm"
+                    >
+                      {isSubmitting ? 'Submitting Request...' : 'Request Appointment'}
+                    </FadeInButton>
+                    <p className="font-inter text-sm text-gray-600 mt-4">
+                      We'll contact you within 24 hours to confirm your appointment
+                    </p>
+                  </div>
+                </ScrollReveal>
+              </form>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Enhanced Contact Information */}
       <section className="py-16 bg-gradient-to-br from-medical-beige to-medical-teal/10 relative overflow-hidden">
