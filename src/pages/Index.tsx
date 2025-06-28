@@ -56,19 +56,9 @@ const Index = () => {
             </div>
             
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-medical-teal/20 to-medical-deep-blue/20 rounded-3xl transform rotate-3 hover:rotate-6 transition-transform duration-500"></div>
+              
               <div className="absolute inset-0 bg-gradient-to-tr from-medical-deep-blue/10 to-medical-teal/10 rounded-3xl transform -rotate-3 hover:-rotate-6 transition-transform duration-500"></div>
-              <div className="relative bg-white p-3 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-                <img alt="Dr. Soumya Hegde - Neurologist and Memory Care Specialist" className="w-full h-[500px] object-cover object-center rounded-2xl" src="/lovable-uploads/d2a52f41-086d-4bdd-b753-d979277c6651.png" />
-                <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                </div>
-                <div className="mt-6 text-center">
-                  <h3 className="font-playfair text-xl text-medical-charcoal mb-2">Dr. Soumya Hegde</h3>
-                  <p className="text-gray-600">Board-Certified Neurologist</p>
-                  <p className="text-sm text-medical-teal mt-1">Memory & Cognitive Disorders Specialist</p>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
