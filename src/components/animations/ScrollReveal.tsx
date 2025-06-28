@@ -28,6 +28,9 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
           setTimeout(() => {
             setIsVisible(true);
           }, delay * 1000);
+        } else {
+          // Reset animation when element leaves viewport
+          setIsVisible(false);
         }
       },
       {

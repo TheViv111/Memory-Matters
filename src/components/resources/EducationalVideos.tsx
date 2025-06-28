@@ -25,6 +25,31 @@ const EducationalVideos = () => {
       title: "My father refuses to seek therapy",
       videoId: "rSMVthBsBG0",
       description: "Understanding and addressing resistance to therapy in elderly family members."
+    },
+    {
+      title: "Understanding Mental Health Challenges",
+      videoId: "uNzQu1L2jXk",
+      description: "Comprehensive overview of mental health challenges and treatment approaches."
+    },
+    {
+      title: "Cognitive Health and Aging",
+      videoId: "d2DLgziAR0Y",
+      description: "Important insights into cognitive health changes as we age and prevention strategies."
+    },
+    {
+      title: "Family Support in Mental Health",
+      videoId: "_iJAqVlbocY",
+      description: "How families can effectively support loved ones dealing with mental health issues."
+    },
+    {
+      title: "Early Detection and Intervention",
+      videoId: "sqWZzesfSiI",
+      description: "The importance of early detection and intervention in mental health care."
+    },
+    {
+      title: "Neurological Health Awareness",
+      videoId: "UCud3PegZCk",
+      description: "Building awareness about neurological health and preventive care strategies."
     }
   ];
 
@@ -42,7 +67,7 @@ const EducationalVideos = () => {
           </div>
         </ScrollReveal>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {educationalVideos.map((video, index) => (
             <ScrollReveal key={index} direction="up" delay={0.2 + index * 0.1}>
               <Card className="hover:shadow-lg transition-shadow duration-300">
