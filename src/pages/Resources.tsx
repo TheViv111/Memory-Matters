@@ -10,19 +10,34 @@ import SupportGroups from '@/components/resources/SupportGroups';
 import ResourcesFAQ from '@/components/resources/ResourcesFAQ';
 import EmergencyResources from '@/components/resources/EmergencyResources';
 import NewsletterSignup from '@/components/resources/NewsletterSignup';
+import ScrollReveal from '@/components/animations/ScrollReveal';
 
 const Resources = () => {
   return (
     <div className="min-h-screen bg-medical-beige">
       <Navigation />
       <ResourcesHero />
-      <EducationalVideos />
-      <EducationalArticles />
-      <DownloadableResources />
-      <SupportGroups />
-      <ResourcesFAQ />
-      <EmergencyResources />
-      <NewsletterSignup />
+      <ScrollReveal direction="up" delay={0.1}>
+        <EducationalVideos />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delay={0.2}>
+        <EducationalArticles />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delay={0.3}>
+        <DownloadableResources />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delay={0.4}>
+        <SupportGroups />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delay={0.5}>
+        <ResourcesFAQ />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delay={0.6}>
+        <EmergencyResources />
+      </ScrollReveal>
+      <ScrollReveal direction="up" delay={0.7}>
+        <NewsletterSignup />
+      </ScrollReveal>
       <Footer />
     </div>
   );
