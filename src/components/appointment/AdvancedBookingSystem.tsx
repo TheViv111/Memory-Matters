@@ -2,15 +2,36 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar, Clock, User, Phone, Mail, FileText, CheckCircle, AlertCircle } from 'lucide-react';
-import { format, addDays, isSameDay, isAfter, isBefore } from 'date-fns';
+import { format, addDays, isSameDay } from 'date-fns';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import { toast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const AdvancedBookingSystem = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string>('');
   const [appointmentType, setAppointmentType] = useState<string>('');
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    dateOfBirth: '',
+    reason: '',
+    insurance: '',
+    previousPatient: '',
+    medications: '',
+    emergencyContact: '',
+    emergencyPhone: ''
+  });
 
   // Generate available dates (next 30 days, excluding Sundays)
   const generateAvailableDates = () => {
@@ -82,6 +103,81 @@ const AdvancedBookingSystem = () => {
     { number: 4, title: 'Confirmation', icon: <CheckCircle className="w-5 h-5" /> }
   ];
 
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async () => {
+    if (!selectedDate || !selectedTime || !appointmentType) {
+      toast({
+        title: "Incomplete Information",
+        description: "Please complete all steps before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.reason) {
+      toast({
+        title: "Missing Required Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('submit-appointment', {
+        body: {
+          ...formData,
+          date: format(selectedDate, 'yyyy-MM-dd'),
+          time: selectedTime,
+          type: appointmentType
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Appointment Requested Successfully! ✨",
+        description: "Thank you! We'll confirm your appointment within 24 hours and send you a confirmation email.",
+      });
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        dateOfBirth: '',
+        reason: '',
+        insurance: '',
+        previousPatient: '',
+        medications: '',
+        emergencyContact: '',
+        emergencyPhone: ''
+      });
+      setSelectedDate(null);
+      setSelectedTime('');
+      setAppointmentType('');
+      setCurrentStep(1);
+
+    } catch (error) {
+      console.error('Error submitting appointment:', error);
+      toast({
+        title: "Submission Error",
+        description: "There was an error submitting your appointment. Please try again or call us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <ScrollReveal direction="up" delay={0.1}>
@@ -151,7 +247,6 @@ const AdvancedBookingSystem = () => {
                       key={type.id}
                       onClick={() => {
                         setAppointmentType(type.id);
-                        setCurrentStep(2);
                       }}
                       className={`p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 hover:shadow-lg ${
                         appointmentType === type.id
@@ -236,7 +331,6 @@ const AdvancedBookingSystem = () => {
                               onClick={() => {
                                 if (slot.available) {
                                   setSelectedTime(slot.time);
-                                  setCurrentStep(3);
                                 }
                               }}
                               disabled={!slot.available}
@@ -266,7 +360,6 @@ const AdvancedBookingSystem = () => {
                               onClick={() => {
                                 if (slot.available) {
                                   setSelectedTime(slot.time);
-                                  setCurrentStep(3);
                                 }
                               }}
                               disabled={!slot.available}
@@ -299,6 +392,245 @@ const AdvancedBookingSystem = () => {
           </ScrollReveal>
         )}
 
+        {/* Step 3: Personal Information */}
+        {currentStep === 3 && (
+          <ScrollReveal direction="up" delay={0.3}>
+            <Card className="shadow-2xl border-0 bg-white">
+              <CardHeader>
+                <CardTitle className="font-playfair text-2xl text-medical-charcoal text-center">
+                  Personal Information
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      First Name *
+                    </Label>
+                    <Input
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Last Name *
+                    </Label>
+                    <Input
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Email Address *
+                    </Label>
+                    <Input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Phone Number *
+                    </Label>
+                    <Input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Date of Birth *
+                    </Label>
+                    <Input
+                      type="date"
+                      value={formData.dateOfBirth}
+                      onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Insurance Provider
+                    </Label>
+                    <Input
+                      value={formData.insurance}
+                      onChange={(e) => handleInputChange('insurance', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      placeholder="e.g., Blue Cross, Aetna, etc."
+                    />
+                  </div>
+                </div>
+                
+                <div className="mt-6 space-y-6">
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Reason for Visit *
+                    </Label>
+                    <Textarea
+                      value={formData.reason}
+                      onChange={(e) => handleInputChange('reason', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors min-h-[100px]"
+                      placeholder="Please describe your primary concerns or symptoms..."
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label className="font-inter font-medium text-medical-charcoal">
+                      Current Medications
+                    </Label>
+                    <Textarea
+                      value={formData.medications}
+                      onChange={(e) => handleInputChange('medications', e.target.value)}
+                      className="border-2 hover:border-medical-teal transition-colors"
+                      placeholder="List all current medications, dosages, and frequency..."
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label className="font-inter font-medium text-medical-charcoal">
+                        Emergency Contact Name
+                      </Label>
+                      <Input
+                        value={formData.emergencyContact}
+                        onChange={(e) => handleInputChange('emergencyContact', e.target.value)}
+                        className="border-2 hover:border-medical-teal transition-colors"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label className="font-inter font-medium text-medical-charcoal">
+                        Emergency Contact Phone
+                      </Label>
+                      <Input
+                        type="tel"
+                        value={formData.emergencyPhone}
+                        onChange={(e) => handleInputChange('emergencyPhone', e.target.value)}
+                        className="border-2 hover:border-medical-teal transition-colors"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </ScrollReveal>
+        )}
+
+        {/* Step 4: Confirmation */}
+        {currentStep === 4 && (
+          <ScrollReveal direction="up" delay={0.3}>
+            <Card className="shadow-2xl border-0 bg-white">
+              <CardHeader>
+                <CardTitle className="font-playfair text-2xl text-medical-charcoal text-center">
+                  Confirm Your Appointment
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-6">
+                  {/* Appointment Summary */}
+                  <div className="bg-gradient-to-r from-medical-teal/10 to-medical-orange/10 p-6 rounded-xl">
+                    <h3 className="font-playfair text-lg font-semibold text-medical-charcoal mb-4">
+                      Appointment Summary
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Service</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {appointmentTypes.find(t => t.id === appointmentType)?.title}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Duration</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {appointmentTypes.find(t => t.id === appointmentType)?.duration}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Date</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {selectedDate ? format(selectedDate, 'EEEE, MMMM do, yyyy') : ''}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Time</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {selectedTime}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Patient Information */}
+                  <div className="bg-gray-50 p-6 rounded-xl">
+                    <h3 className="font-playfair text-lg font-semibold text-medical-charcoal mb-4">
+                      Patient Information
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Name</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {formData.firstName} {formData.lastName}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Email</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {formData.email}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Phone</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {formData.phone}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-inter text-sm text-gray-600">Date of Birth</p>
+                        <p className="font-inter font-medium text-medical-charcoal">
+                          {formData.dateOfBirth}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="text-center pt-4">
+                    <Button
+                      onClick={handleSubmit}
+                      disabled={isSubmitting}
+                      className="bg-gradient-to-r from-medical-deep-blue to-medical-teal hover:from-medical-teal hover:to-medical-deep-blue text-white px-12 py-4 text-lg font-inter shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 rounded-xl"
+                    >
+                      {isSubmitting ? 'Submitting Request...' : 'Confirm Appointment'}
+                    </Button>
+                    <p className="font-inter text-sm text-gray-600 mt-4">
+                      We'll contact you within 24 hours to confirm your appointment
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </ScrollReveal>
+        )}
+
         {/* Navigation Buttons */}
         <div className="flex justify-between pt-6">
           <Button
@@ -316,16 +648,40 @@ const AdvancedBookingSystem = () => {
             </p>
           </div>
           
-          <Button
-            onClick={() => setCurrentStep(Math.min(steps.length, currentStep + 1))}
-            disabled={
-              (currentStep === 1 && !appointmentType) ||
-              (currentStep === 2 && (!selectedDate || !selectedTime))
-            }
-            className="bg-medical-teal hover:bg-medical-teal/90 text-white"
-          >
-            Next Step
-          </Button>
+          {currentStep < 4 && (
+            <Button
+              onClick={() => {
+                if (currentStep === 1 && !appointmentType) {
+                  toast({
+                    title: "Selection Required",
+                    description: "Please select an appointment type to continue.",
+                    variant: "destructive"
+                  });
+                  return;
+                }
+                if (currentStep === 2 && (!selectedDate || !selectedTime)) {
+                  toast({
+                    title: "Selection Required",
+                    description: "Please select both date and time to continue.",
+                    variant: "destructive"
+                  });
+                  return;
+                }
+                if (currentStep === 3 && (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.reason)) {
+                  toast({
+                    title: "Required Fields Missing",
+                    description: "Please fill in all required fields to continue.",
+                    variant: "destructive"
+                  });
+                  return;
+                }
+                setCurrentStep(currentStep + 1);
+              }}
+              className="bg-medical-teal hover:bg-medical-teal/90 text-white"
+            >
+              Next Step
+            </Button>
+          )}
         </div>
       </div>
     </div>
