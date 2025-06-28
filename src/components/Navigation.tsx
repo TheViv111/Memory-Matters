@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -56,6 +57,10 @@ const Navigation = () => {
               Services
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-orange transition-all duration-200 group-hover:w-full"></span>
             </Link>
+            <Link to="/resources" className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group">
+              Resources
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-orange transition-all duration-200 group-hover:w-full"></span>
+            </Link>
             <Link to="/faqs" className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 relative group">
               FAQs
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-medical-orange transition-all duration-200 group-hover:w-full"></span>
@@ -100,6 +105,9 @@ const Navigation = () => {
               </Link>
               <Link to="/services" className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1" onClick={() => setIsOpen(false)}>
                 Services
+              </Link>
+              <Link to="/resources" className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1" onClick={() => setIsOpen(false)}>
+                Resources
               </Link>
               <Link to="/faqs" className="font-inter font-medium text-gray-700 hover:text-medical-teal transition-colors duration-200 px-2 py-1" onClick={() => setIsOpen(false)}>
                 FAQs
