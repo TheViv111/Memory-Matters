@@ -2,26 +2,33 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Phone, Clock, CheckCircle, Star, Award } from 'lucide-react';
+import { Phone, Clock, CheckCircle, Star, Award, Shield, Users, Calendar } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden pt-24">
-      {/* Abstract Background Elements */}
+    <section className="relative min-h-screen bg-gradient-to-br from-white via-medical-beige/30 to-medical-teal/5 overflow-hidden">
+      {/* Professional Background Pattern */}
       <div className="absolute inset-0 z-0">
-        {/* Geometric shapes */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-medical-teal/10 to-medical-deep-blue/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tr from-medical-orange/10 to-medical-teal/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-gradient-to-r from-medical-lavender/15 to-transparent rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Subtle medical cross pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="grid grid-cols-12 gap-8 h-full">
+            {Array.from({ length: 48 }).map((_, i) => (
+              <div key={i} className="relative">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4">
+                  <div className="w-full h-0.5 bg-medical-teal"></div>
+                  <div className="w-0.5 h-full bg-medical-teal absolute top-0 left-1/2 transform -translate-x-1/2"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(46,134,171,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(46,134,171,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        {/* Elegant gradients */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-medical-teal/5 to-medical-deep-blue/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-tr from-medical-orange/5 to-medical-teal/5 rounded-full blur-2xl" />
       </div>
       
-      {/* Professional overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent z-10" />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-20 min-h-screen flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
           {/* Content Section */}
           <div className="animate-fade-in">
@@ -73,7 +80,7 @@ const HeroSection = () => {
               {[
                 { title: "15+ Years", desc: "Clinical Experience", icon: <Award className="w-6 h-6 text-medical-teal" /> },
                 { title: "1000+ Patients", desc: "Successfully Treated", icon: <Star className="w-6 h-6 text-medical-orange" /> },
-                { title: "Specialized Care", desc: "Memory & Cognitive Health", icon: <CheckCircle className="w-6 h-6 text-medical-deep-blue" /> }
+                { title: "Specialized Care", desc: "Memory & Cognitive Health", icon: <Shield className="w-6 h-6 text-medical-deep-blue" /> }
               ].map((credential, index) => (
                 <div key={index} className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-medical-teal/20 hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                   <div className="flex items-center mb-3">
@@ -105,11 +112,10 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Visual Element Section */}
+          {/* Professional Visual Element */}
           <div className="relative lg:ml-8">
-            {/* Abstract Professional Visualization */}
+            {/* Main Professional Card */}
             <div className="relative">
-              {/* Main card */}
               <div className="bg-gradient-to-br from-white via-slate-50 to-blue-50 p-8 rounded-3xl shadow-2xl border border-medical-teal/20 hover:shadow-3xl transition-all duration-500 hover:scale-105 backdrop-blur-sm">
                 <div className="space-y-8">
                   {/* Header */}
@@ -119,38 +125,49 @@ const HeroSection = () => {
                     </div>
                     <h3 className="font-playfair text-2xl text-medical-charcoal mb-2">Dr. Soumya Hegde</h3>
                     <p className="font-inter text-medical-teal font-medium">Geriatric Psychiatrist</p>
+                    <div className="w-16 h-0.5 bg-gradient-to-r from-medical-teal to-medical-orange mx-auto mt-3"></div>
                   </div>
                   
-                  {/* Credentials Grid */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {["MBBS", "DPM", "MRCPsych", "CCT"].map((credential, index) => (
-                      <div key={index} className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-medical-teal/10 text-center hover:shadow-md transition-all duration-300 hover:scale-105">
-                        <p className="font-inter font-semibold text-medical-deep-blue">{credential}</p>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* Stats */}
-                  <div className="flex justify-around pt-6 border-t border-medical-teal/20">
-                    <div className="text-center">
+                  {/* Professional Stats */}
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-medical-teal/10 hover:shadow-md transition-all duration-300">
+                      <Users className="w-6 h-6 text-medical-teal mx-auto mb-2" />
                       <p className="text-2xl font-bold text-medical-orange">15+</p>
-                      <p className="text-sm text-gray-600">Years</p>
+                      <p className="text-xs text-gray-600">Years Experience</p>
                     </div>
-                    <div className="text-center">
+                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-medical-teal/10 hover:shadow-md transition-all duration-300">
+                      <Star className="w-6 h-6 text-medical-orange mx-auto mb-2" />
                       <p className="text-2xl font-bold text-medical-teal">1000+</p>
-                      <p className="text-sm text-gray-600">Patients</p>
+                      <p className="text-xs text-gray-600">Patients Treated</p>
                     </div>
-                    <div className="text-center">
+                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-medical-teal/10 hover:shadow-md transition-all duration-300">
+                      <Calendar className="w-6 h-6 text-medical-deep-blue mx-auto mb-2" />
                       <p className="text-2xl font-bold text-medical-deep-blue">24/7</p>
-                      <p className="text-sm text-gray-600">Support</p>
+                      <p className="text-xs text-gray-600">Emergency Support</p>
+                    </div>
+                  </div>
+                  
+                  {/* Credentials */}
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3 p-3 bg-white/60 rounded-lg">
+                      <CheckCircle className="w-5 h-5 text-medical-teal" />
+                      <span className="font-inter text-sm text-gray-700">Board Certified Psychiatrist</span>
+                    </div>
+                    <div className="flex items-center space-x-3 p-3 bg-white/60 rounded-lg">
+                      <CheckCircle className="w-5 h-5 text-medical-teal" />
+                      <span className="font-inter text-sm text-gray-700">Geriatric Medicine Specialist</span>
+                    </div>
+                    <div className="flex items-center space-x-3 p-3 bg-white/60 rounded-lg">
+                      <CheckCircle className="w-5 h-5 text-medical-teal" />
+                      <span className="font-inter text-sm text-gray-700">Memory Disorders Expert</span>
                     </div>
                   </div>
                 </div>
               </div>
               
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-medical-orange to-medical-teal rounded-full shadow-lg animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full shadow-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
+              {/* Floating accent elements */}
+              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-medical-orange to-medical-teal rounded-full shadow-lg"></div>
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full shadow-lg"></div>
             </div>
           </div>
         </div>
