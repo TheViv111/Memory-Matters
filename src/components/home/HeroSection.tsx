@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -80,7 +79,7 @@ const HeroSection = () => {
           {/* Professional Doctor Card - Updated with correct information */}
           <div className="relative lg:ml-8 lg:mt-0 mt-8">
             {/* Main Professional Card */}
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <div className="bg-gradient-to-br from-white via-slate-50 to-blue-50 p-8 rounded-3xl shadow-2xl border border-medical-teal/20 hover:shadow-3xl transition-all duration-500 hover:scale-105 backdrop-blur-sm">
                 <div className="space-y-8">
                   {/* Doctor Image */}
@@ -134,9 +133,9 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Floating accent elements */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-medical-orange to-medical-teal rounded-full shadow-lg"></div>
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full shadow-lg"></div>
+              {/* Floating accent elements - Fixed positioning */}
+              <div className="absolute top-2 right-2 w-12 h-12 bg-gradient-to-br from-medical-orange to-medical-teal rounded-full shadow-lg"></div>
+              <div className="absolute bottom-2 left-2 w-8 h-8 bg-gradient-to-br from-medical-teal to-medical-deep-blue rounded-full shadow-lg"></div>
             </div>
           </div>
         </div>
