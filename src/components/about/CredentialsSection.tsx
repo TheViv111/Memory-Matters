@@ -1,45 +1,44 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, Award, Users, Heart } from 'lucide-react';
+import { GraduationCap, Award, Users, Heart, School, University } from 'lucide-react';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 
 const CredentialsSection = () => {
   const credentials = [
     {
-      icon: GraduationCap,
+      icon: School,
       title: "Medical Education",
       details: [
         "MBBS - Grant Medical College & Sir JJ Hospital, Mumbai",
-        "DPM (Psychiatry) - Lokmanya Tilak Municipal Medical College, Sion, Mumbai",
-        "MRCPsych - Royal College of Psychiatrists"
+        "DPM (Psychiatry) - Lokmanya Tilak Municipal Medical College, Sion, Mumbai"
       ]
     },
     {
-      icon: Award,
-      title: "Specialized Training",
+      icon: University,
+      title: "Postgraduate Training",
       details: [
-        "CCT in Old Age Psychiatry",
-        "Certificate of Completion of Training",
+        "MRCPsych - Royal College of Psychiatrists, UK",
+        "CCT in Old Age Psychiatry - United Kingdom",
         "Member of Royal College of Psychiatrists"
       ]
     },
     {
-      icon: Users,
-      title: "Professional Experience",
+      icon: Award,
+      title: "Professional Certifications",
       details: [
-        "Geriatric Psychiatrist",
-        "Memory Disorders Specialist",
-        "15+ Years Clinical Practice"
+        "Certificate of Completion of Training (CCT)",
+        "Specialist Registration in Old Age Psychiatry",
+        "GMC Registration, United Kingdom"
       ]
     },
     {
       icon: Heart,
       title: "Areas of Expertise",
       details: [
-        "Old Age Psychiatry",
-        "Memory Disorders & Dementia",
-        "Cognitive Health Assessment"
+        "Geriatric Psychiatry & Mental Health",
+        "Memory Disorders & Dementia Care",
+        "Cognitive Health Assessment & Treatment"
       ]
     }
   ];
