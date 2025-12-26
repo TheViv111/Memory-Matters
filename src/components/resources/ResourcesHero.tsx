@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 
 const ResourcesHero = () => {
   return (
-    <section className="py-16 pb-8 bg-white">
+    <section className="pt-32 pb-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="font-playfair text-4xl md:text-5xl text-medical-charcoal mb-6">
           Patient & Family Resources

@@ -107,7 +107,7 @@ const Services = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="py-16 bg-white">
+      <section className="pt-32 pb-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-playfair text-4xl md:text-5xl text-medical-charcoal mb-6">
             Cognitive & Geriatric Psychiatry Services
