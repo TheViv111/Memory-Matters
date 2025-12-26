@@ -38,18 +38,17 @@ const Navigation = () => {
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Simplified Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group" onClick={handleLinkClick}>
-            <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
-              <img src="/logo.jpeg" alt="Memory Matters Logo" className="w-full h-full object-cover" />
+          <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200 group flex-shrink-0" onClick={handleLinkClick}>
+            <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 border-2 border-medical-teal/10 flex-shrink-0 flex items-center justify-center bg-white p-0.5">
+              <img src="/logo.jpeg" alt="Memory Matters Logo" className="w-full h-full object-contain rounded-full" />
             </div>
-            <div className="font-playfair text-xl font-bold text-medical-charcoal">
+            <div className="font-playfair text-xl font-bold text-medical-charcoal whitespace-nowrap">
               Memory Matters
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
             {[
               { name: 'Home', path: '/' },
               { name: 'About', path: '/about' },
