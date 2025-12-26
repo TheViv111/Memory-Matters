@@ -52,21 +52,17 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-br from-medical-teal/20 to-medical-orange/20 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-700 shadow-2xl"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-medical-deep-blue/10 to-medical-teal/10 rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-700 shadow-xl"></div>
-            <div className="relative bg-white p-3 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-all duration-700 hover:scale-105 backdrop-blur-sm border border-white/50">
+          <div className="relative flex justify-center items-center">
+            {/* Background decorative circles */}
+            <div className="absolute w-[450px] h-[450px] bg-gradient-to-br from-medical-teal/10 to-medical-orange/10 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute w-[400px] h-[400px] bg-gradient-to-tr from-medical-deep-blue/5 to-medical-teal/5 rounded-full blur-xl"></div>
+
+            <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white">
               <img
-                alt="Dr. Soumya Hegde - Geriatric Psychiatrist specializing in memory care and cognitive disorders"
+                alt="Dr. Soumya Hegde - Geriatric Psychiatrist"
                 src="/images/76dc60d7-260b-44ed-8802-e008f6b9a2dd.png"
-                className="w-full h-[600px] rounded-2xl object-cover object-center bg-gray-50 transition-transform duration-500 group-hover:scale-[1.02]"
+                className="w-full h-full object-cover object-center bg-gray-50"
               />
-              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md rounded-full p-3 shadow-xl border border-medical-teal/20 group-hover:scale-110 transition-all duration-300">
-                <div className="w-3 h-3 bg-medical-orange rounded-full animate-pulse"></div>
-              </div>
-              <div className="absolute bottom-6 left-6 bg-gradient-to-r from-medical-teal/90 to-medical-deep-blue/90 backdrop-blur-md rounded-lg px-4 py-2 shadow-xl border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                <span className="text-white font-inter text-sm font-medium">Memory Care Expert</span>
-              </div>
             </div>
           </div>
         </div>

@@ -51,7 +51,7 @@ const HeroSection = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-medical-teal to-medical-orange mb-8 rounded-full shadow-md"></div>
 
             <p className="font-inter text-xl md:text-2xl text-gray-700 mb-6 leading-relaxed">
-              Specialized psychiatric care for older adults, focusing on memory disorders,
+              Specialized mental health care for older adults, focusing on memory disorders,
               cognitive health, and comprehensive mental wellness solutions.
             </p>
 
@@ -70,7 +70,7 @@ const HeroSection = () => {
               </Link>
               <Link to="/about" className="w-full sm:w-auto">
                 <Button variant="outline" className="w-full border-2 border-medical-teal text-medical-teal hover:bg-medical-teal hover:text-white px-8 py-4 text-lg font-inter transition-all duration-300 hover:scale-105 rounded-xl shadow-lg backdrop-blur-sm bg-white/80">
-                  Meet Dr. Hegde
+                  About
                 </Button>
               </Link>
             </div>
@@ -111,11 +111,6 @@ const HeroSection = () => {
                     </div>
                   </div>
 
-                  {/* Credentials - Updated with correct information from About page */}
-                  <div className="flex items-center space-x-3 p-3 bg-white/60 rounded-lg">
-                    <CheckCircle className="w-5 h-5 text-medical-teal" />
-                    <span className="font-inter text-sm text-gray-700">MMedSci - Clinical Psychiatry</span>
-                  </div>
                   <div className="flex items-center space-x-3 p-3 bg-white/60 rounded-lg">
                     <CheckCircle className="w-5 h-5 text-medical-teal" />
                     <span className="font-inter text-sm text-gray-700">MRCPsych - Royal College of Psychiatrists</span>
