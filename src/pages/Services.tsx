@@ -24,81 +24,61 @@ const Services = () => {
       icon: <Heart className="w-12 h-12 text-medical-teal" />,
       title: "Memory Screening",
       description: "Standardized clinical tools and standardized cognitive testing aligned with British psychiatric protocols for early detection of memory concerns.",
-      features: ["Standardized cognitive testing", "Baseline memory assessment", "Self-report evaluations", "Informant-based history", "Early detection counseling"],
-      duration: "45-60 minutes",
-      preparation: "Informant (family member) involvement is helpful"
+      features: ["Standardized cognitive testing", "Baseline memory assessment", "Self-report evaluations", "Informant-based history", "Early detection counseling"]
     },
     {
       icon: <Users className="w-12 h-12 text-medical-teal" />,
       title: "Dementia Evaluation",
       description: "Comprehensive clinical diagnostic process to identify and subtype different forms of dementia and cognitive impairment.",
-      features: ["Clinical diagnostic interview", "Mental state examination", "Functional assessment", "Differential diagnosis", "Care planning"],
-      duration: "60-90 minutes",
-      preparation: "Previous medical reports and brain imaging if any"
+      features: ["Clinical diagnostic interview", "Mental state examination", "Functional assessment", "Differential diagnosis", "Care planning"]
     },
     {
       icon: <Shield className="w-12 h-12 text-medical-teal" />,
       title: "Management of Challenging Behaviours",
       description: "Expert strategies and therapeutic interventions for managing behavioral and psychological symptoms associated with dementia.",
-      features: ["Behavioral assessment", "Trigger identification", "Non-pharmacological strategies", "Medication management", "Safety planning"],
-      duration: "60 minutes",
-      preparation: "Diary of behaviors of concern if possible"
+      features: ["Behavioral assessment", "Trigger identification", "Non-pharmacological strategies", "Medication management", "Safety planning"]
     },
     {
       icon: <CheckCircle className="w-12 h-12 text-medical-teal" />,
       title: "Treatment of Psychiatric Disorders in Seniors",
       description: "Specialized psychiatric care for senior-onset conditions including depression, anxiety, and late-life psychosis.",
-      features: ["Psychiatric evaluation", "Geriatric psychopharmacology", "Psychological support", "Comorbidity management", "Holistic care approach"],
-      duration: "60 minutes",
-      preparation: "List of all current medications"
+      features: ["Psychiatric evaluation", "Geriatric psychopharmacology", "Psychological support", "Comorbidity management", "Holistic care approach"]
     },
     {
       icon: <BookOpen className="w-12 h-12 text-medical-teal" />,
       title: "Cognitive Stimulation Therapy",
       description: "Evidence-based non-pharmacological treatment for people with mild to moderate dementia.",
-      features: ["Structured cognitive activities", "Social interaction support", "Brain health engagement", "Quality of life enhancement", "Group or individual sessions"],
-      duration: "45-60 minutes",
-      preparation: "Regular attendance is encouraged"
+      features: ["Structured cognitive activities", "Social interaction support", "Brain health engagement", "Quality of life enhancement", "Group or individual sessions"]
     },
     {
       icon: <Users className="w-12 h-12 text-medical-teal" />,
       title: "Family Education and Support",
       description: "In-depth guidance and emotional support for families to understand and navigate the journey of their loved ones.",
-      features: ["Disease education", "Communication strategies", "Caregiver stress management", "Legal/Financial awareness", "Future care planning"],
-      duration: "60 minutes",
-      preparation: "Relevant family members encouraged to attend"
+      features: ["Disease education", "Communication strategies", "Caregiver stress management", "Legal/Financial awareness", "Future care planning"]
     },
     {
       icon: <Heart className="w-12 h-12 text-medical-teal" />,
       title: "Geriatric Counselling",
       description: "Therapeutic counseling tailored to the unique emotional and psychological needs of aging adults.",
-      features: ["Adjustment to aging", "Grief and loss support", "Identity and purpose", "Emotional resilience", "Supportive psychotherapy"],
-      duration: "45-60 minutes",
-      preparation: "Open heart and mind"
+      features: ["Adjustment to aging", "Grief and loss support", "Identity and purpose", "Emotional resilience", "Supportive psychotherapy"]
     },
     {
       icon: <MapPin className="w-12 h-12 text-medical-teal" />,
       title: "Community Outreach Service",
       description: "Initiatives and programs designed to increase awareness and provide care accessibility in the community.",
-      features: ["Awareness workshops", "Screening camps", "Home-based visit coordination", "Community health talks", "Stigma reduction programs"],
-      duration: "Varies",
-      preparation: "Contact us for community program schedules"
+      features: ["Awareness workshops", "Screening camps", "Home-based visit coordination", "Community health talks", "Stigma reduction programs"]
     },
     {
       icon: <Users className="w-12 h-12 text-medical-teal" />,
       title: "Caregiver Training Programs",
       description: "Practical skills and training for caregivers to provide high-quality home-based care for seniors with cognitive needs.",
-      features: ["ADL assistance training", "Behavioral management skills", "Environmental safety", "Medication adherence", "Self-care for caregivers"],
-      duration: "60-90 minutes",
-      preparation: "Note-taking materials recommended"
+      features: ["ADL assistance training", "Behavioral management skills", "Environmental safety", "Medication adherence", "Self-care for caregivers"]
     },
     {
       icon: <Settings className="w-12 h-12 text-medical-teal" />,
       title: "Senior Care Resource Hub",
       description: "Access to a curated collection of resources, tools, and referrals for comprehensive senior mental wellness.",
-      features: ["Educational materials", "Service referrals", "Toolkits for daily living", "Support network links", "Care coordination resources"],
-      duration: "Access based",
-      preparation: "Available to all registered patients"
+      features: ["Educational materials", "Service referrals", "Toolkits for daily living", "Support network links", "Care coordination resources"]
     }
   ];
 
@@ -150,20 +130,7 @@ const Services = () => {
                     </ul>
                   </div>
 
-                  <div className="border-t pt-4 mt-6">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-inter text-sm text-gray-600">Duration:</span>
-                      <span className="font-inter text-sm text-medical-charcoal font-medium">
-                        {service.duration}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-inter text-sm text-gray-600">Preparation:</span>
-                      <span className="font-inter text-sm text-medical-charcoal font-medium text-right max-w-48">
-                        {service.preparation}
-                      </span>
-                    </div>
-                  </div>
+
                 </CardContent>
               </Card>
             ))}
