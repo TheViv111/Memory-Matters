@@ -9,7 +9,7 @@ import GoogleMap from '@/components/GoogleMap';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Heart, Users, Calendar, Shield, Clock, CheckCircle, MapPin } from 'lucide-react';
+import { Heart, Users, Calendar, Shield, CheckCircle, MapPin } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -112,40 +112,7 @@ const Index = () => {
       <PatientTestimonials />
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-medical-deep-blue to-medical-charcoal text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-playfair text-4xl md:text-5xl mb-8">
-            Get in Touch with Us
-          </h2>
-          <p className="font-inter text-xl mb-10 opacity-90 leading-relaxed">
-            We're here to support you and your family on your health journey
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            <Link to="/contact">
-              <Button className="bg-medical-teal hover:bg-medical-teal/90 text-white px-10 py-4 text-lg font-inter shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-xl">
-                Contact Us
-              </Button>
-            </Link>
-            <a
-              href="tel:+918904418172"
-              className="inline-flex items-center justify-center border-2 border-white bg-transparent text-white hover:bg-white hover:text-medical-deep-blue px-10 py-4 text-lg font-inter transition-all duration-300 hover:scale-105 rounded-xl"
-            >
-              Call Us
-            </a>
-          </div>
-
-          {/* Office Hours */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-md mx-auto">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <Clock className="w-5 h-5 text-medical-teal" />
-              <span className="font-inter font-semibold">Office Hours</span>
-            </div>
-            <p className="font-inter mb-2">Monday - Friday: 9:00 AM - 4:00 PM</p>
-            <p className="font-inter">Saturday: 9:00 AM - 1:00 PM</p>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
