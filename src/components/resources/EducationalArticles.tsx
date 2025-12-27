@@ -13,28 +13,28 @@ const EducationalArticles = ({ searchQuery = '' }: EducationalArticlesProps) => 
       title: "Caring for a Person with Alzheimer's Disease",
       source: "National Institute on Aging",
       description: "An easy-to-use guide from the NIA covering daily care, safety, and financing care for Alzheimer's patients.",
-      url: "https://www.nia.nih.gov/health/caring-person-alzheimers-disease",
+      url: "https://order.nia.nih.gov/publication/caring-for-a-person-with-alzheimers-disease",
       category: "Caregiving"
     },
     {
       title: "10 Symptoms of Early Dementia",
       source: "Alzheimer's Association",
       description: "Learn about the 10 early signs and symptoms of Alzheimer's and dementia to help with early detection.",
-      url: "https://www.alz.org/alzheimers-dementia/10-signs",
+      url: "https://www.alz.org/alzheimers-dementia/10_signs?utm_source=google-grant&utm_medium=paidsearch&utm_campaign=google_grant&gad_source=1",
       category: "Diagnosis"
     },
     {
       title: "Behavioral Changes in Dementia",
       source: "UCSF Health",
       description: "Understanding and managing behavioral and personality changes that often accompany dementia progression.",
-      url: "https://memory.ucsf.edu/caregiving/behavior-personality-changes",
+      url: "https://memory.ucsf.edu/caregiving-support/behavior-personality-changes",
       category: "Symptom Management"
     },
     {
-      title: "What is Geriatric Psychiatry?",
-      source: "American Psychiatric Association",
-      description: "A comprehensive overview of geriatric psychiatry, common conditions treated, and when to see a specialist.",
-      url: "https://www.psychiatry.org/patients-families/geriatric-psychiatry",
+      title: "Geriatric Psychiatry: A Comprehensive Guide",
+      source: "American Association for Geriatric Psychiatry",
+      description: "Insights into how geriatric psychiatrists diagnose and treat mental health conditions in older adults.",
+      url: "https://aagponline.org/?src=gendocs&ref=GeriatricPsychiatry",
       category: "Treatment"
     },
     {
