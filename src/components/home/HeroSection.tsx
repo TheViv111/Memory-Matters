@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Phone, Clock, CheckCircle, Star, Shield, Users, Calendar } from 'lucide-react';
+import { Phone, Clock, CheckCircle, Star, Users, Calendar } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -88,7 +88,7 @@ const HeroSection = () => {
                   </div>
 
                   {/* Professional Stats */}
-                  <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="grid grid-cols-2 gap-4 text-center">
                     <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-medical-teal/10 hover:shadow-md transition-all duration-300">
                       <Users className="w-6 h-6 text-medical-teal mx-auto mb-2" />
                       <p className="text-2xl font-bold text-medical-orange">20+</p>
@@ -98,11 +98,6 @@ const HeroSection = () => {
                       <Star className="w-6 h-6 text-medical-orange mx-auto mb-2" />
                       <p className="text-2xl font-bold text-medical-teal">1000+</p>
                       <p className="text-xs text-gray-600">Patients Treated</p>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-medical-teal/10 hover:shadow-md transition-all duration-300">
-                      <Shield className="w-6 h-6 text-medical-deep-blue mx-auto mb-2" />
-                      <p className="text-2xl font-bold text-medical-deep-blue">Accredited</p>
-                      <p className="text-xs text-gray-600">Specialist Clinic</p>
                     </div>
                   </div>
 
