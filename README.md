@@ -1,58 +1,38 @@
-# Memory Matters
+# Dr. Soumya Hegde - Geriatric Psychiatrist
 
-A professional website for Dr. Soumya Hegde, Geriatric Psychiatrist, dedicated to providing specialized mental health care for older adults.
+Professional website for **Dr. Soumya Hegde**, a compassionate geriatric psychiatrist dedicated to providing specialized mental health care for older adults.
 
-## Project Overview
+## Professional Profile
 
-This project is a React-based web application designed to showcase geriatric psychiatry services, resources for caregivers, and clinic information.
+Dr. Soumya Hegde is a highly experienced psychiatrist with specialized expertise in old age psychiatry, memory disorders, and cognitive health. With over **20 years of experience**, she combines advanced medical training with a patient-centered approach to provide comprehensive care.
 
-## Technologies Used
+### Specialties
+- **Old Age Psychiatry**: Comprehensive evaluation and management of mental health conditions in the elderly.
+- **Memory Disorders**: Diagnosis and treatment of Alzheimer's, dementia, and other cognitive impairments.
+- **Cognitive Health**: Strategies and support for maintaining mental clarity and emotional wellbeing in later life.
 
-This project is built with:
+## Philosophy of Care
 
-- [Vite](https://vitejs.dev/) - Frontend Tooling
-- [React](https://reactjs.org/) - UI Library
-- [TypeScript](https://www.typescriptlang.org/) - Static Type Checking
-- [shadcn/ui](https://ui.shadcn.com/) - Reusable Components
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS Framework
+Dr. Hegde believes that treating mental and cognitive health challenges in older adults requires not just medical expertise, but also deep compassion and understanding.
 
-## Getting Started
+- **Compassionate Care**: Individualized attention with empathy at the core of treatment.
+- **Family-Centered**: Holistic support that includes families and caregivers in the journey.
+- **Evidence-Based**: Clinically proven treatments grounded in the latest research.
+- **Excellence**: Commitment to the highest standards of medical practice.
 
-To get a local copy up and running, follow these steps.
+## Qualifications & Recognition
 
-### Prerequisites
+### Education
+- **MBBS** - Grant Medical College & Sir JJ Hospital, Mumbai (1998)
+- **DPM (Psychiatry)** - LTM Medical College, Mumbai (2001)
+- **MRCPsych** - Royal College of Psychiatrists, UK (2010)
+- **CCT in Old Age Psychiatry** - UK (2010)
+- **MMedSci (Clinical Psychiatry)** - UK (2012)
 
-Ensure you have Node.js and npm installed on your machine.
-- [Download Node.js](https://nodejs.org/)
+### Affiliations
+- Life Member, **Indian Psychiatric Society**
+- Member, **Royal College of Psychiatrists (UK)**
+- Registered with the **Specialist Register in Geriatric Psychiatry**
 
-### Installation
-
-1.  Clone the repository:
-    ```sh
-    git clone <YOUR_GIT_URL>
-    ```
-
-2.  Navigate to the project directory:
-    ```sh
-    cd Memory-Matters-84
-    ```
-
-3.  Install dependencies:
-    ```sh
-    npm install
-    ```
-
-4.  Start the development server:
-    ```sh
-    npm run dev
-    ```
-
-## Development
-
--   **Development Server**: `npm run dev` serves the application at `http://localhost:8080` (or similar) with hot module replacement.
--   **Build**: `npm run build` bundles the app for production.
--   **Preview**: `npm run preview` to locally preview the production build.
-
-## License
-
-All rights reserved.
+---
+*For appointments and clinic information, please visit the contact section of the website.*
