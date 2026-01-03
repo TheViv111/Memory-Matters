@@ -76,11 +76,11 @@ const ContactForm = () => {
           contactPreference: ''
         });
       }
-
+    } catch (error: any) {
       console.error('Error submitting contact form:', error);
       const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
       // EmailJS errors often come as objects with a 'text' property
-      const emailJSError = (error as any)?.text || errorMessage;
+      const emailJSError = error?.text || errorMessage;
 
       toast({
         title: "Submission Error",
