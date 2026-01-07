@@ -110,7 +110,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center sm:text-left">
           <p className="text-gray-400 text-sm">
-            © 2024 Memory Matters Clinic. All rights reserved.
+            © 2024 Memory Matters Clinic. All rights reserved. | Created by Vivaan Handa
           </p>
         </div>
       </div>
